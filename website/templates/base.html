@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+
+        <title>{% block title %}Home {% endblock %}</title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                <span class ="navbar-toggler-icon"></span>
+            </button>
+
+            <div class ="collapse navbar-collapse" id="navbar">
+                <div class="navbar=nav">
+                    
+                    <a class="nav-item nav link" id ="login" href ="/">Home</a>
+                    <a class="nav-item nav link" id ="logout" href ="/logout">Logout</a>
+                   
+                    <a class="nav-item nav link" id ="login" href ="/login1">Login</a>
+                    <a class="nav-item nav link" id ="signup" href ="/sign-up">SignUp</a>
+                   
+                    
+
+        </nav>
+        {%with messages=get_flashed_messages()%}
+        
+        
+        {%if messages%}
+        <div class="notification-in-danger">
+            {{messages[0]}}
+            
+        </div>
+        {%else%}
+        <div class="notification-in-success">
+            {{messages[0]}}
+            
+        </div>
+        {% endif %}
+    
+        {%endwith%}
+        <div class="container">
+            {%block content%}
+            {%endblock%}
+        </div>
+
+    </body>
+    </html>
